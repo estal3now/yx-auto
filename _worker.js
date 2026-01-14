@@ -96,9 +96,9 @@ async function fetchAndParseWetest(url) {
             const rowHtml = match[0];
             const cellMatch = rowHtml.match(cellRegex);
             if (cellMatch && cellMatch[1] && cellMatch[2]) {
-                const colo = cellMatch[3] ? cellMatch[3].trim().replace(/<.*?>/g, '') : '';
+                const colo = cellMatch[3] ? cellMatch[3].trim().替换(/<.*?>/g, '') : '';
                 results.push({
-                    isp: cellMatch[1].trim().replace(/<.*?>/g, ''),
+                    isp: cellMatch[1].trim().替换(/<.*?>/g, ''),
                     ip: cellMatch[2].trim(),
                     colo: colo
                 });
@@ -112,7 +112,7 @@ async function fetchAndParseWetest(url) {
 
 // 整理成数组
 async function 整理成数组(内容) {
-    var 替换后的内容 = 内容.replace(/[	"'\r\n]+/g, ',').replace(/,+/g, ',');
+    var 替换后的内容 = 内容.替换(/[	"'\r\n]+/g, ',').替换(/,+/g, ',');
     if (替换后的内容.charAt(0) == ',') 替换后的内容 = 替换后的内容.slice(1);
     if (替换后的内容.charAt(替换后的内容.length - 1) == ',') 替换后的内容 = 替换后的内容.slice(0, 替换后的内容.length - 1);
     const 地址数组 = 替换后的内容.split(',');
@@ -262,7 +262,7 @@ function generateLinksFromSource(list, user, workerDomain, disableNonTLS = false
     const proto = 'vless';
 
     list.forEach(item => {
-        let nodeNameBase = item.isp ? item.isp.替换(/\s/g, '_') : (item.name || item.domain || item.ip);
+        let nodeNameBase = item.isp ? item.isp.replace(/\s/g, '_') : (item.name || item.domain || item.ip);
         if (item.colo && item.colo.trim()) {
             nodeNameBase = `${nodeNameBase}-${item.colo.trim()}`;
         }
