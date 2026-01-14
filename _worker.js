@@ -253,10 +253,10 @@ async function fetchAndParseNewIPs(piu) {
 
 // 生成VLESS链接
 function generateLinksFromSource(list, user, workerDomain, disableNonTLS = false, customPath = '/') {
-    const CF_HTTP_PORTS = [ 2082];
-    const CF_HTTPS_PORTS = [443];
-    const defaultHttpsPorts = [443];
-    const defaultHttpPorts = disableNonTLS ? [] : [2082];
+    const CF_HTTP_PORTS = [2082];
+	const CF_HTTPS_PORTS = [443];
+	const defaultHttpsPorts = [443];
+	const defaultHttpPorts = disableNonTLS ? [] : [2082];
     const links = [];
     const wsPath = customPath || '/';
     const proto = 'vless';
