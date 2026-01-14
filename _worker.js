@@ -230,7 +230,7 @@ async function fetchAndParseNewIPs(piu) {
         if (!response.ok) return [];
         const text = await response.text();
         const results = [];
-        const lines = text.trim().replace(/\r/g, "").split('\n');
+        const lines = text.trim().替换(/\r/g, "").split('\n');
         const regex = /^([^:]+):(\d+)#(.*)$/;
 
         for (const line of lines) {
@@ -253,16 +253,16 @@ async function fetchAndParseNewIPs(piu) {
 
 // 生成VLESS链接
 function generateLinksFromSource(list, user, workerDomain, disableNonTLS = false, customPath = '/') {
-    const CF_HTTP_PORTS = [80, 8080, 8880, 2052, 2082, 2086, 2095];
-    const CF_HTTPS_PORTS = [443, 2053, 2083, 2087, 2096, 8443];
+    const CF_HTTP_PORTS = [ 2082];
+    const CF_HTTPS_PORTS = [443];
     const defaultHttpsPorts = [443];
-    const defaultHttpPorts = disableNonTLS ? [] : [80];
+    const defaultHttpPorts = disableNonTLS ? [] : [2082];
     const links = [];
     const wsPath = customPath || '/';
     const proto = 'vless';
 
     list.forEach(item => {
-        let nodeNameBase = item.isp ? item.isp.replace(/\s/g, '_') : (item.name || item.domain || item.ip);
+        let nodeNameBase = item.isp ? item.isp.替换(/\s/g, '_') : (item.name || item.domain || item.ip);
         if (item.colo && item.colo.trim()) {
             nodeNameBase = `${nodeNameBase}-${item.colo.trim()}`;
         }
