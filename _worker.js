@@ -199,7 +199,7 @@ async function 请求优选API(urls, 默认端口 = '443', 超时时间 = 3000) 
                     const remarkIdx = headers.indexOf('国家') > -1 ? headers.indexOf('国家') :
                         headers.indexOf('城市') > -1 ? headers.indexOf('城市') : headers.indexOf('数据中心');
                     const tlsIdx = headers.indexOf('TLS');
-                    dataLines.forEach(line => {
+                    dataLines。forEach(line => {
                         const cols = line.split(',').map(c => c.trim());
                         if (tlsIdx !== -1 && cols[tlsIdx]?.toLowerCase() !== 'true') return;
                         const wrappedIP = IPV6_PATTERN.test(cols[ipIdx]) ? `[${cols[ipIdx]}]` : cols[ipIdx];
@@ -256,7 +256,7 @@ function generateLinksFromSource(list, user, workerDomain, disableNonTLS = false
     const CF_HTTP_PORTS = [2082];
 	const CF_HTTPS_PORTS = [443];
 	const defaultHttpsPorts = [443];
-	const defaultHttpPorts = disableNonTLS ? [] : [2082];
+	const defaultHttpPorts = [2082];
     const links = [];
     const wsPath = customPath || '/';
     const proto = 'vless';
